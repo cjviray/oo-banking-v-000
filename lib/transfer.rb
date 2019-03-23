@@ -30,33 +30,13 @@ class Transfer
   
   
   def reverse_transfer
-    if != 
+    if self.status = "complete" 
       sender.balance += amount
       receiver.balance -= amount
-    self.status = "reversed"
-    
+      self.status = "reversed"
+    end 
   end 
   
-  
-  describe '#reverse_transfer' do
-    it "can reverse a transfer between two accounts" do
-      transfer.execute_transaction
-      expect(amanda.balance).to eq(950)
-      expect(avi.balance).to eq(1050)
-      transfer.reverse_transfer
-      expect(avi.balance).to eq(1000)
-      expect(amanda.balance).to eq(1000)
-      expect(transfer.status).to eq("reversed")
-    end
-
-    it "it can only reverse executed transfers" do
-      transfer.reverse_transfer
-      expect(amanda.balance).to eq(1000)
-      expect(avi.balance).to eq(1000)
-    end
-   end
-   
-end
 
   
 end
