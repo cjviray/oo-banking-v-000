@@ -24,6 +24,7 @@ class Transfer
       self.status = "completed"
     else 
       self.status = "rejected"
+      "Transaction rejected. Please check your account balance."
     end 
   end 
   
